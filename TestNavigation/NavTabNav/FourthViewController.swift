@@ -29,6 +29,13 @@ class FourthViewController: UIViewController {
         super.viewWillAppear(animated)
         print("FourthViewController",#function)
         print(self.navigationController)
+        if let navigationController = self.navigationController {
+            for (index, viewController) in navigationController.viewControllers.enumerated() {
+                print("ViewController at index \(index): \(viewController)")
+            }
+        } else {
+            print("No navigation controller found.")
+        }
     }
 
     @objc func goBack() {
