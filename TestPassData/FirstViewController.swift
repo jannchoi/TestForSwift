@@ -23,8 +23,6 @@ final class FirstViewController: UIViewController {
         label.snp.makeConstraints { make in
             make.center.equalToSuperview()
         }
-
-        // 프로필 이미지 탭 버튼
         let mainButton = UIButton(type: .system)
         mainButton.setTitle("Go to SecondViewController", for: .normal)
         mainButton.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
@@ -35,17 +33,15 @@ final class FirstViewController: UIViewController {
             make.centerX.equalToSuperview()
         }
     }
-
     @objc func buttonTapped() {
         let vc = SecondViewController()
 
-        // 클로저로 데이터 전달을 처리
         vc.passData = { data in
             if let data = data {
-                self.star = data  // 받은 데이터를 star 변수에 저장
-                self.label.text = "Selected Star: \(data)"  // 레이블에 업데이트
+                self.star = data
+                self.label.text = "Selected Star: \(data)"
             } else {
-                return self.star  // star 값을 반환
+                return self.star
             }
             return nil
         }

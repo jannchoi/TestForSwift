@@ -9,8 +9,8 @@ import UIKit
 import SnapKit
 
 final class SecondViewController: UIViewController {
-    var passData: ((String?) -> (String?))?  // 데이터를 전달할 클로저
-    var selectedItem = "selected"  // 선택된 아이템 (예시 데이터)
+    var passData: ((String?) -> (String?))?
+    var selectedItem = "selected"
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +28,6 @@ final class SecondViewController: UIViewController {
     }
 
     @objc func backButtonTapped() {
-        // passData 클로저를 통해 selectedItem 값을 전달
         passData?(selectedItem)
 
         // 첫 번째 화면으로 돌아가기
